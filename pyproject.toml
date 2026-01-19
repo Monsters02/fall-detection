@@ -1,0 +1,20 @@
+[project]
+name = "fall-detection-rpi"
+version = "2.0.0"
+description = "Real-time fall detection system for Raspberry Pi 4 with Pi Camera using YOLOv8 pose estimation"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "opencv-python>=4.8.0",
+    "ultralytics>=8.0.0",
+    "numpy>=1.21.0",
+    "pillow>=9.0.0"
+]
+
+[project.optional-dependencies]
+pi = ["picamera2>=0.3", "RPi.GPIO>=0.7.0"]
+dev = ["pytest>=7.0", "black>=22.0"]
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
