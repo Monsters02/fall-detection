@@ -73,15 +73,16 @@ class FallDetector:
         try:
             self.camera = Picamera2()
             
-            # Use video configuration with RGB888 (proven to work)
+            # Use video configuration with RGB888 at native resolution (1920x1080)
+            # Pi Camera v2/v3 native sensor: 3280x2464, this is a high-quality resolution
             config = self.camera.create_video_configuration(
-                main={"size": (640, 480), "format": "RGB888"}
+                main={"size": (1920, 1080), "format": "RGB888"}
             )
             self.camera.configure(config)
             self.camera.start()
             time.sleep(0.2)  # Brief warmup
             
-            print("✓ Pi Camera initialized successfully")
+            print("✓ Pi Camera initialized successfully (1920x1080)")
             return True
         except Exception as e:
             print(f"✗ Pi Camera initialization failed: {e}")
